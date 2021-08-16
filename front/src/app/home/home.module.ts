@@ -1,0 +1,23 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+import { HomePage } from './home.page';
+import { HomePageRoutingModule } from './home-routing.module';
+import { ItemModule } from '../item/item.module';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    ItemModule,
+    Ng2SearchPipeModule,
+    HomePageRoutingModule
+  ],
+  declarations: [HomePage]
+})
+export class HomePageModule {}

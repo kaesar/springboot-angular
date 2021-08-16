@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+    <input type="hidden" formControlName="id" />
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" formControlName="nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Rol</ion-label>
+      <ion-select [compareWith]="byRol" okText="Confirmar" cancelText="Cancelar" formControlName="rol">
+        <ion-select-option [value]="item.id" *ngFor="let item of roles">{{ item.nombre }}</ion-select-option>
+        <!--<ion-select-option [ngValue]="item" *ngFor="let item of roles">{{ item.nombre }}</ion-select-option>-->
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Activo</ion-label>
+      <ion-select value="S" okText="Confirmar" cancelText="Cancelar" formControlName="activo">
+        <ion-select-option value="S">Si</ion-select-option>
+        <ion-select-option value="N">No</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button type="submit" [disabled]="!dataForm.valid">
+      <ion-icon slot="start" name="save"></ion-icon>
+      Guardar
+    </ion-button>
+  </form>
+</ion-content>

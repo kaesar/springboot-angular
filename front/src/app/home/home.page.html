@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Gestion de Usuarios
+    </ion-title>
+    <ion-searchbar showCancelButton="focus" cancelButtonIcon="close" placeHolder="Buscar..." [(ngModel)]="filter"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button [routerLink]="'/new/'">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        Inbox
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-list>
+    <app-item *ngFor="let usuario of usuarios | filter:filter" [usuario]="usuario"></app-item>
+  </ion-list>
+</ion-content>
