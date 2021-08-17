@@ -1,5 +1,10 @@
 -- PostgreSQL Database Script by Cesar Arcila
 
+--CREATE DATABASE test;
+--CREATE ROLE test;
+--CREATE SCHEMA test;
+--GRANT ALL PRIVILEGES ON DATABASE test TO test;
+
 CREATE SEQUENCE seq_rol START WITH 4;
 
 CREATE TABLE rol
